@@ -2,7 +2,8 @@
 GIt Hub Principiantes
 https://www.youtube.com/watch?v=3XlZWpLwvvo&ab_channel=Piensa3D
 
-Crear lector de codigo QR
+Crear lector de codigo QR texto
 https://cursokotlin.com/zxing-leer-qr-codigos-de-barras-en-kotlin/
 
+Crear lector de codigo 
 https://www.youtube.com/watch?v=Wdb5okugwmU&ab_channel=Programaci%C3%B3nAndroidbyAristiDevs
