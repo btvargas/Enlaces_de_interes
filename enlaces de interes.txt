@@ -7,3 +7,6 @@ https://cursokotlin.com/zxing-leer-qr-codigos-de-barras-en-kotlin/
 
 Crear lector de codigo 
 https://www.youtube.com/watch?v=Wdb5okugwmU&ab_channel=Programaci%C3%B3nAndroidbyAristiDevs
+
+Nuevas Activity
+https://www.tutorialesprogramacionya.com/kotlinparaandroidya/detalleconcepto.php?punto=11&codigo=59&inicio=0
