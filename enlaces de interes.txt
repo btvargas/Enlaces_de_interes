@@ -10,3 +10,78 @@ https://www.youtube.com/watch?v=Wdb5okugwmU&ab_channel=Programaci%C3%B3nAndroidb
 
 Nuevas Activity
 https://www.tutorialesprogramacionya.com/kotlinparaandroidya/detalleconcepto.php?punto=11&codigo=59&inicio=0
+
+CODIGO DEL BOTON QR  .KT
+
+
+package com.example.ra_museo
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import com.example.ra_museo.databinding.ActivityMainBinding
+import com.google.zxing.integration.android.IntentIntegrator
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnscanner.setOnClickListener { initScanner() }
+
+    }
+
+    private fun initScanner() {
+        val integrator = IntentIntegrator(this)
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+        integrator.setPrompt("Ubica el codigo QR dentro del recuadro")
+        integrator.setBeepEnabled(true)
+        integrator.initiateScan()
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (result != null) {
+            if (result.contents == null) {
+                Toast.makeText(this, "Cancelado", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "El valor escaneado es: " + result.contents, Toast.LENGTH_LONG)
+                    .show()
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+    }
+
+}
+
+
+CODIGO DEL BOTON SCAN
+
+ <Button
+        android:id="@+id/btnscanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
+
+codigo para siguiente actividad
+
+setContentView(R.layout.activity_main)
+
+        val btn1sig = findViewById<Button>(R.id.btn1sig)
+        btn1sig.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
